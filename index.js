@@ -19,19 +19,17 @@ try {
  const readdir = util.promisify(fs.readdir);
  const readfile = util.promisify(fs.readfile);
 
- await readdir(directory, (err, files) => {
-   files.forEach(file => {
+ let files = await readdir(directory); 
+ files.forEach(file => {
 
-     const ext = file.split('.');
-     if(ext[ext.length - 1] == 'trx') {
+   const ext = file.split('.');
+   if(ext[ext.length - 1] == 'trx') {
 
-      let data = await readFile(directory + '/' + file);
-      formData.append("file", data);
-      console.log("file included: " + directory + '/' + file);
+    let data = await readfile(directory + '/' + file);
+    formData.append("file", data);
+    console.log("file included: " + directory + '/' + file);
 
-     }
-
-   });
+   }
 
  });
 
