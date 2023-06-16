@@ -1,0 +1,13 @@
+name: 'BugBlaster360-Action'
+description: 'Action to transfer gen2 logs to BugBlaster360 app'
+author: 'Hackathon 2023'
+inputs:
+ commit:
+  description: 'Commit Ref'
+  required: true
+ file:
+  description: 'Path to logfile from gen2 tests'
+  required: true
+runs:
+  using: 'node16'
+  main: 'index.js'
