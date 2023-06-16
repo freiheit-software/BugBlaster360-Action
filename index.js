@@ -9,6 +9,7 @@ try {
  const file = core.getInput('file');
  console.log(file); 
 
+
 } catch (error) {
   core.setFailed(error.message);
 }
