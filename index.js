@@ -32,25 +32,26 @@ try {
      }
 
    });
- });
 
- console.log(formData);
+   console.log(formData);
 
- var config = {
-  method: 'post',
-  url: 'https://app.facilioo.de/jaromarcrebekka.php',
-  headers: { 
-    ...formData.getHeaders()
-  },
-  data : formData
- };
+   var config = {
+    method: 'post',
+    url: 'https://app.facilioo.de/jaromarcrebekka.php',
+    headers: { 
+      ...formData.getHeaders()
+    },
+    data : formData
+   };
 
- axios(config).then(function (response) {
-  console.log("request successful!");
-  console.log(JSON.stringify(response.data));
- }).catch(function (error) {
-  console.log("request failed!");
-  console.log(error);
+   axios(config).then(function (response) {
+    console.log("request successful!");
+    console.log(JSON.stringify(response.data));
+   }).catch(function (error) {
+    console.log("request failed!");
+    console.log(error);
+   });
+
  });
 
 } catch (error) {
