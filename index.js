@@ -6,8 +6,8 @@ try {
  const commit = core.getInput('commit');
  console.log(commit); 
 
- const file = core.getInput('file');
- console.log(file); 
+ const directory = core.getInput('directory');
+ console.log(directory); 
 
 } catch (error) {
   core.setFailed(error.message);
