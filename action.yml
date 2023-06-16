@@ -5,8 +5,8 @@ inputs:
  commit:
   description: 'Commit Ref'
   required: true
- file:
-  description: 'Path to logfile from gen2 tests'
+ directory:
+  description: 'Directory of logfiles from gen2 tests'
   required: true
 runs:
   using: 'node16'

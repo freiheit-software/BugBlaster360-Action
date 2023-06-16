@@ -6,4 +6,4 @@ This GitHub Action transfers the gen2 log to a Go Webservice which generates the
 
 ``commit`` the reference of the commit
 
-``file`` Path to logfile from gen2 tests
+``diretofy`` Directory of logfiles from gen2 tests
