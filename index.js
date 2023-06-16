@@ -9,6 +9,16 @@ try {
  const directory = core.getInput('directory');
  console.log(directory); 
 
+ console.log("params completed"); 
+
+ const fs = require('fs');
+
+ fs.readdir(directory, (err, files) => {
+   files.forEach(file => {
+     console.log(file);
+   });
+ });
+
 } catch (error) {
   core.setFailed(error.message);
 }
