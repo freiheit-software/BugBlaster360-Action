@@ -22,7 +22,7 @@ try {
 
      if(ext[ext.length - 1] == 'trx') {
 
-      formData.append("files", fs.createReadStream(file));
+      formData.append("files", fs.createReadStream(directory + '/' + file));
       console.log("file included: " + file);
 
      }
