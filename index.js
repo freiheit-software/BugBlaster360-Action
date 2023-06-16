@@ -5,7 +5,7 @@ const FormData = require('form-data');
 const axios = require('axios');
 const util = require('util');
 
-try {
+async function upload() {
 
  const commit = core.getInput('commit');
  console.log(commit); 
@@ -52,6 +52,6 @@ try {
   console.log(error);
  });
 
-} catch (error) {
-  core.setFailed(error.message);
 }
+
+upload();
