@@ -19,16 +19,22 @@ try {
    files.forEach(file => {
 
      const ext = file.split('.');
-
      if(ext[ext.length - 1] == 'trx') {
 
-      formData.append("files", fs.createReadStream(directory + '/' + file));
-      console.log("file included: " + file);
+      var fileBuffer = fs.createReadStream(directory + '/' + file);
+      fileBuffer.on('data', function (chunk) {
+
+      	formData.append("file", chunk);
+      	console.log("file included: " + directory + '/' + file);
+
+      }
 
      }
 
    });
  });
+
+ console.log(formData);
 
  var config = {
   method: 'post',
