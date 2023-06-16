@@ -1,8 +1,9 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const fs = require('fs').promises;
+const fs = require('fs');
 const FormData = require('form-data');
 const axios = require('axios');
+const util = require('util');
 
 try {
 
@@ -15,13 +16,16 @@ try {
  const formData = new FormData();
  formData.append("commit", commit);
 
- await fs.readdir(directory, (err, files) => {
+ const readdir = util.promisify(fs.readdir);
+ const readfile = util.promisify(fs.readfile);
+
+ await readdir(directory, (err, files) => {
    files.forEach(file => {
 
      const ext = file.split('.');
      if(ext[ext.length - 1] == 'trx') {
 
-      let data = await fs.readFile(directory + '/' + file);
+      let data = await readFile(directory + '/' + file);
       formData.append("file", data);
       console.log("file included: " + directory + '/' + file);
 
