@@ -18,7 +18,7 @@ try {
  fs.readdir(directory, (err, files) => {
    files.forEach(file => {
 
-     const ext = str.split('.');
+     const ext = file.split('.');
 
      if(ext[ext.length - 1] == 'trx') {
 
