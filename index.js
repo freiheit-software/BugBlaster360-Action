@@ -27,7 +27,7 @@ try {
       	formData.append("file", chunk);
       	console.log("file included: " + directory + '/' + file);
 
-      }
+      }); 
 
      }
 
