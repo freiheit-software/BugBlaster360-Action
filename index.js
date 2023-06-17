@@ -3,9 +3,24 @@ const github = require('@actions/github');
 const fs = require('fs');
 const FormData = require('form-data');
 const axios = require('axios');
-const util = require('util');
 
-async function upload() {
+const readFile = (path) =>
+  new Promise((resolve, reject) => {
+    fs.readFile(path, (err, data) => {
+      if (err) reject(err)
+      else resolve(data)
+    })
+  });
+
+const readDir = (path) =>
+  new Promise((resolve, reject) => {
+    fs.readDir(path, (err, data) => {
+      if (err) reject(err)
+      else resolve(data)
+    })
+  })
+
+const run = async () => {
 
  const commit = core.getInput('commit');
  console.log(commit); 
@@ -19,13 +34,13 @@ async function upload() {
  const readdir = util.promisify(fs.readdir);
  const readfile = util.promisify(fs.readfile);
 
- let files = await readdir(directory); 
+ let files = await readDir(directory); 
  files.forEach(file => {
 
    const ext = file.split('.');
    if(ext[ext.length - 1] == 'trx') {
 
-    let data = await readfile(directory + '/' + file);
+    let data = await readFile(directory + '/' + file);
     formData.append("file", data);
     console.log("file included: " + directory + '/' + file);
 
@@ -54,4 +69,5 @@ async function upload() {
 
 }
 
-upload();
+run();
+
