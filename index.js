@@ -49,7 +49,7 @@ const run = async () => {
 
  var config = {
   method: 'post',
-  url: 'https://acaa-91-66-87-25.eu.ngrok.io/results',
+  url: 'https://6511-91-66-87-25.ngrok-free.app/results',
   headers: { 
     ...formData.getHeaders()
   },
