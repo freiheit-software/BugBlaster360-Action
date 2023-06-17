@@ -31,19 +31,19 @@ const run = async () => {
  const formData = new FormData();
  formData.append("commit", commit);
 
- let files = await readDir(directory); 
- files.forEach(file => {
+ let files = await readDir(directory);
+ for(let i = 0; i < files.length; i++) { 
 
-   const ext = file.split('.');
+   const ext = files[i].split('.');
    if(ext[ext.length - 1] == 'trx') {
 
-    let data = await readFile(directory + '/' + file);
+    let data = await readFile(directory + '/' + files[i]);
     formData.append("file", data);
-    console.log("file included: " + directory + '/' + file);
+    console.log("file included: " + directory + '/' + files[i]);
 
    }
 
- });
+ };
 
  console.log(formData);
 
