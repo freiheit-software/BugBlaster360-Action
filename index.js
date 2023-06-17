@@ -31,9 +31,6 @@ const run = async () => {
  const formData = new FormData();
  formData.append("commit", commit);
 
- const readdir = util.promisify(fs.readdir);
- const readfile = util.promisify(fs.readfile);
-
  let files = await readDir(directory); 
  files.forEach(file => {
 
