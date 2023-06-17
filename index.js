@@ -38,7 +38,7 @@ const run = async () => {
    if(ext[ext.length - 1] == 'trx') {
 
     let data = await readFile(directory + '/' + files[i]);
-    formData.append("files[]", data);
+    formData.append("files", data);
     console.log("file included: " + directory + '/' + files[i]);
 
    }
