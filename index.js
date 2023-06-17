@@ -14,7 +14,7 @@ const readFile = (path) =>
 
 const readDir = (path) =>
   new Promise((resolve, reject) => {
-    fs.readDir(path, (err, data) => {
+    fs.readdir(path, (err, data) => {
       if (err) reject(err)
       else resolve(data)
     })
