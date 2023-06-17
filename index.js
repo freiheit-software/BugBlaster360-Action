@@ -49,7 +49,7 @@ const run = async () => {
 
  var config = {
   method: 'post',
-  url: 'https://app.facilioo.de/jaromarcrebekka.php',
+  url: 'https://acaa-91-66-87-25.eu.ngrok.io/results',
   headers: { 
     ...formData.getHeaders()
   },
